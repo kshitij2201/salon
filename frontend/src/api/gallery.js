@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 // Base URL for your backend API
-const BASE_URL = 'http://salon-one-rose.vercel.app/api';
+const BASE_URL = 'https://salon-one-rose.vercel.app/api';
 
 // Get all gallery images (for customers to view)
 export const getGalleryImages = async () => {
