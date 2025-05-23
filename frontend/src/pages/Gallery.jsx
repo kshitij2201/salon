@@ -7,7 +7,7 @@ function Gallery() {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    axios.get('http://salon-one-rose.vercel.app/api/gallery')
+    axios.get('https://salon-one-rose.vercel.app/api/gallery')
       .then((res) => setGalleryItems(res.data))
       .catch((err) => setError('Failed to fetch gallery items.'));
   }, []);

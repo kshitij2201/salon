@@ -15,7 +15,7 @@ function BookAppointment() {
   const [success, setSuccess] = useState(false);
 
   useEffect(() => {
-    axios.get('http://salon-one-rose.vercel.app/api/services')
+    axios.get('https://salon-one-rose.vercel.app/api/services')
       .then(res => setServices(res.data))
       .catch(err => console.error(err));
 
@@ -52,7 +52,7 @@ function BookAppointment() {
     e.preventDefault();
     const combinedDateTime = new Date(`${formData.appointmentDate}T${formData.appointmentTime}`);
 
-    axios.post('http://salon-one-rose.vercel.app/api/appointments', {
+    axios.post('https://salon-one-rose.vercel.app/api/appointments', {
       ...formData,
       services: selectedServices.map(s => s._id),
       appointmentTime: combinedDateTime.toISOString(),

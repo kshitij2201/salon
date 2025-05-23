@@ -22,7 +22,7 @@ function TotalEarnings() {
 
   const fetchMonthlyStats = async () => {
     try {
-      const res = await axios.get('http://salon-one-rose.vercel.app/api/appointments');
+      const res = await axios.get('https://salon-one-rose.vercel.app/api/appointments');
       const appointments = res.data;
       const now = new Date();
       const currentYear = now.getFullYear();

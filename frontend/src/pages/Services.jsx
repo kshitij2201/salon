@@ -18,7 +18,7 @@ function Services() {
 
   const fetchServices = async () => {
     try {
-      const res = await axios.get('http://salon-one-rose.vercel.app/api/services');
+      const res = await axios.get('https://salon-one-rose.vercel.app/api/services');
       setServices(res.data);
     } catch (err) {
       console.error("Error fetching services:", err.response?.data?.message || err.message);
@@ -36,9 +36,9 @@ function Services() {
     e.preventDefault();
     try {
       if (formData._id) {
-        await axios.put(`http://salon-one-rose.vercel.app/api/services/${formData._id}`, formData);
+        await axios.put(`https://salon-one-rose.vercel.app/api/services/${formData._id}`, formData);
       } else {
-        await axios.post('http://salon-one-rose.vercel.app/api/services', formData);
+        await axios.post('https://salon-one-rose.vercel.app/api/services', formData);
       }
       fetchServices();
       setFormData({ name: '', description: '', duration: '', price: '', _id: null });
@@ -53,7 +53,7 @@ function Services() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://salon-one-rose.vercel.app/api/services/${id}`);
+      await axios.delete(`https://salon-one-rose.vercel.app/api/services/${id}`);
       fetchServices();
     } catch (err) {
       console.error("Error deleting service:", err.response?.data?.message || err.message);

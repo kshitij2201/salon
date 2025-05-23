@@ -8,7 +8,7 @@ function Home() {
 
   useEffect(() => {
     axios
-      .get('http://salon-one-rose.vercel.app/api/services')
+      .get('https://salon-one-rose.vercel.app/api/services')
       .then(res => setServices(res.data))
       .catch(err => console.error(err));
   }, []);

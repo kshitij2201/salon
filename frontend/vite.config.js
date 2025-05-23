@@ -6,7 +6,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://salon-one-rose.vercel.app', // backend server
+        target: 'https://salon-one-rose.vercel.app', // backend server
         changeOrigin: true,
       },
     },

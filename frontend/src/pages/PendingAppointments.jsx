@@ -17,7 +17,7 @@ function PendingAppointments() {
   useEffect(() => {
     const fetchPendingAppointments = async () => {
       try {
-        const res = await axios.get('http://salon-one-rose.vercel.app/api/appointments');
+        const res = await axios.get('https://salon-one-rose.vercel.app/api/appointments');
         const pending = res.data.filter((appt) => appt.paymentStatus !== 'paid');
         setPendingAppointments(pending);
       } catch (err) {
