@@ -1,0 +1,314 @@
+/* Stylists Page */
+.stylists-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  background: var(--background-light);
+  text-align: center;
+  min-height: 100vh;
+}
+
+.stylists-page h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  color: var(--text-dark);
+  margin-bottom: 32px;
+  letter-spacing: 1.2px;
+  position: relative;
+  text-transform: capitalize;
+  font-weight: 700;
+}
+
+.stylists-page h2::after {
+  content: '';
+  width: 60px;
+  height: 5px;
+  background: var(--accent-gradient);
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.stylists-page h2:hover::after {
+  width: 90px;
+}
+
+.stylists-page h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  color: var(--text-dark);
+  margin: 32px 0 16px;
+  text-transform: capitalize;
+}
+
+/* Add Stylist Form */
+.add-stylist-form {
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  max-width: 600px;
+  margin: 0 auto 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.add-stylist-form input {
+  padding: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  color: var(--text-dark);
+  background: #f9f9f9;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.add-stylist-form input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 8px rgba(92, 107, 192, 0.2);
+}
+
+.add-stylist-form button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  background: var(--primary-color);
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.add-stylist-form button:hover {
+  background: #4a5ba3;
+  transform: translateY(-2px);
+}
+
+/* Tables */
+.stylists-page table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+
+.stylists-page th,
+.stylists-page td {
+  padding: 16px;
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  color: var(--text-dark);
+  text-align: left;
+}
+
+.stylists-page th {
+  background: var(--primary-color);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.stylists-page tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+.stylists-page tr:hover {
+  background: rgba(92, 107, 192, 0.1);
+}
+
+.stylists-page td button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-family: 'Lora', serif;
+  font-size: 14px;
+  cursor: pointer;
+  margin-right: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.stylists-page td button:nth-child(1) {
+  background: #0288d1; /* Blue for Mark Attendance */
+  color: #ffffff;
+}
+
+.stylists-page td button:nth-child(1):hover {
+  background: #01579b;
+  transform: translateY(-1px);
+}
+
+.stylists-page td button:nth-child(2) {
+  background: #ff9800; /* Orange for Break */
+  color: #ffffff;
+}
+
+.stylists-page td button:nth-child(2):hover {
+  background: #f57c00;
+  transform: translateY(-1px);
+}
+
+.stylists-page td button:nth-child(3) {
+  background: #ef5350; /* Red for Delete */
+  color: #ffffff;
+}
+
+.stylists-page td button:nth-child(3):hover {
+  background: #d32f2f;
+  transform: translateY(-1px);
+}
+
+.stylists-page td button:only-child {
+  background: var(--secondary-color); /* Pink for Re-Add */
+  color: #ffffff;
+}
+
+.stylists-page td button:only-child:hover {
+  background: #c2185b;
+  transform: translateY(-1px);
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  .stylists-page {
+    background: var(--background-dark);
+  }
+
+  .stylists-page h2,
+  .stylists-page h3 {
+    color: var(--text-light);
+  }
+
+  .add-stylist-form {
+    background: #2a2a2a;
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.05);
+  }
+
+  .add-stylist-form input {
+    background: #333;
+    color: var(--text-light);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .stylists-page table {
+    background: #2a2a2a;
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.05);
+  }
+
+  .stylists-page th,
+  .stylists-page td {
+    color: var(--text-light);
+  }
+
+  .stylists-page tr:nth-child(even) {
+    background: #333;
+  }
+
+  .stylists-page tr:hover {
+    background: rgba(92, 107, 192, 0.2);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .stylists-page {
+    padding: 24px 16px;
+  }
+
+  .stylists-page h2 {
+    font-size: 28px;
+  }
+
+  .stylists-page h2::after {
+    width: 50px;
+  }
+
+  .stylists-page h2:hover::after {
+    width: 70px;
+  }
+
+  .stylists-page h3 {
+    font-size: 20px;
+  }
+
+  .add-stylist-form {
+    padding: 24px;
+    max-width: 500px;
+  }
+
+  .add-stylist-form input,
+  .add-stylist-form button {
+    font-size: 15px;
+  }
+
+  .add-stylist-form button {
+    padding: 10px 20px;
+  }
+
+  .stylists-page th,
+  .stylists-page td {
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  .stylists-page td button {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .stylists-page {
+    padding: 16px 12px;
+  }
+
+  .stylists-page h2 {
+    font-size: 24px;
+  }
+
+  .stylists-page h2::after {
+    width: 40px;
+  }
+
+  .stylists-page h2:hover::after {
+    width: 60px;
+  }
+
+  .stylists-page h3 {
+    font-size: 18px;
+  }
+
+  .add-stylist-form {
+    padding: 20px;
+    max-width: 400px;
+  }
+
+  .add-stylist-form input,
+  .add-stylist-form button {
+    font-size: 14px;
+  }
+
+  .add-stylist-form button {
+    padding: 8px 16px;
+  }
+
+  .stylists-page th,
+  .stylists-page td {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .stylists-page td button {
+    padding: 5px 10px;
+    font-size: 12px;
+    margin-right: 4px;
+  }
+}

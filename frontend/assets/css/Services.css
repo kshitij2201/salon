@@ -1,0 +1,364 @@
+/* Variable Definitions */
+:root {
+  --primary-color: #5c6bc0; /* Indigo for buttons and accents */
+  --secondary-color: #e91e63; /* Vibrant pink for highlights */
+  --accent-gradient: linear-gradient(45deg, #e91e63, #f06292);
+  --background-light: #f7f1e9; /* Warm cream background */
+  --background-dark: #1c2526; /* Deep charcoal for dark mode */
+  --text-dark: #1a1a1a; /* Near-black for text */
+  --text-light: #e0e0e0; /* Soft white for dark mode */
+  --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Services Wrapper */
+.services-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  background: var(--background-light);
+  text-align: center;
+}
+
+/* Titles */
+.services-wrapper h1,
+.services-wrapper h2 {
+  font-family: 'Playfair Display', serif;
+  color: var(--text-dark);
+  letter-spacing: 1.5px;
+  position: relative;
+}
+
+.services-wrapper h1 {
+  font-size: 48px;
+  margin-bottom: 32px;
+  font-weight: 700;
+}
+
+.services-wrapper h2 {
+  font-size: 32px;
+  margin: 40px 0 24px;
+  font-weight: 600;
+}
+
+.services-wrapper h1::after,
+.services-wrapper h2::after {
+  content: '';
+  width: 80px;
+  height: 6px;
+  background: var(--accent-gradient);
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.services-wrapper h1:hover::after,
+.services-wrapper h2:hover::after {
+  width: 120px;
+}
+
+/* Service Form */
+.service-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: var(--card-shadow);
+  max-width: 600px;
+  margin: 0 auto 40px;
+}
+
+.service-form label {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+.service-form input,
+.service-form textarea {
+  margin-top: 8px;
+  padding: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  color: var(--text-dark);
+  background: #f9f9f9;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-form input:focus,
+.service-form textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 8px rgba(92, 107, 192, 0.2);
+}
+
+.service-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.service-form button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  background: var(--primary-color);
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.service-form button:hover {
+  background: #4a5ba3;
+  transform: translateY(-2px);
+}
+
+/* Service List */
+.service-list {
+  overflow-x: auto;
+}
+
+.service-list table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+}
+
+.service-list th,
+.service-list td {
+  padding: 16px;
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  color: var(--text-dark);
+  text-align: left;
+}
+
+.service-list th {
+  background: var(--primary-color);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.service-list tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+.service-list tr:hover {
+  background: rgba(92, 107, 192, 0.1);
+}
+
+.service-list button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-family: 'Lora', serif;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.service-list button:first-child {
+  background: var(--primary-color);
+  color: #ffffff;
+  margin-right: 8px;
+}
+
+.service-list button:first-child:hover {
+  background: #4a5ba3;
+  transform: translateY(-1px);
+}
+
+.service-list button:last-child {
+  background: #e57373;
+  color: #ffffff;
+}
+
+.service-list button:last-child:hover {
+  background: #d32f2f;
+  transform: translateY(-1px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .services-wrapper {
+    padding: 24px 16px;
+  }
+
+  .services-wrapper h1 {
+    font-size: 36px;
+  }
+
+  .services-wrapper h2 {
+    font-size: 28px;
+  }
+
+  .services-wrapper h1::after,
+  .services-wrapper h2::after {
+    width: 60px;
+  }
+
+  .services-wrapper h1:hover::after,
+  .services-wrapper h2:hover::after {
+    width: 90px;
+  }
+
+  .service-form {
+    padding: 24px;
+    max-width: 100%;
+  }
+
+  .service-form label,
+  .service-form input,
+  .service-form textarea {
+    font-size: 15px;
+  }
+
+  .service-form input,
+  .service-form textarea {
+    padding: 10px;
+  }
+
+  .service-form button {
+    padding: 10px 20px;
+    font-size: 15px;
+  }
+
+  .service-list th,
+  .service-list td {
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  .service-list button {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-wrapper {
+    padding: 16px 12px;
+  }
+
+  .services-wrapper h1 {
+    font-size: 28px;
+  }
+
+  .services-wrapper h2 {
+    font-size: 24px;
+  }
+
+  .services-wrapper h1::after,
+  .services-wrapper h2::after {
+    width: 50px;
+  }
+
+  .services-wrapper h1:hover::after,
+  .services-wrapper h2:hover::after {
+    width: 70px;
+  }
+
+  .service-form {
+    padding: 20px;
+  }
+
+  .service-form label,
+  .service-form input,
+  .service-form textarea {
+    font-size: 14px;
+  }
+
+  .service-form input,
+  .service-form textarea {
+    padding: 8px;
+  }
+
+  .service-form button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .service-list th,
+  .service-list td {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .service-list button {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  .services-wrapper {
+    background: var(--background-dark);
+  }
+
+  .services-wrapper h1,
+  .services-wrapper h2 {
+    color: var(--text-light);
+  }
+
+  .service-form {
+    background: #2a2a2a;
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.05);
+  }
+
+  .service-form label {
+    color: var(--text-light);
+  }
+
+  .service-form input,
+  .service-form textarea {
+    background: #333;
+    color: var(--text-light);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .service-form input:focus,
+  .service-form textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 8px rgba(92, 107, 192, 0.3);
+  }
+
+  .service-list table {
+    background: #2a2a2a;
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.05);
+  }
+
+  .service-list th,
+  .service-list td {
+    color: var(--text-light);
+  }
+
+  .service-list tr:nth-child(even) {
+    background: #333;
+  }
+
+  .service-list tr:hover {
+    background: rgba(92, 107, 192, 0.2);
+  }
+}

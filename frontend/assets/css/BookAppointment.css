@@ -1,0 +1,443 @@
+/* Variable Definitions */
+:root {
+  --primary-color: #5c6bc0; /* Indigo for buttons and accents */
+  --secondary-color: #e91e63; /* Vibrant pink for highlights */
+  --accent-gradient: linear-gradient(45deg, #e91e63, #f06292);
+  --background-light: #f7f1e9; /* Warm cream background */
+  --background-dark: #1c2526; /* Deep charcoal for dark mode */
+  --text-dark: #1a1a1a; /* Near-black for text */
+  --text-light: #e0e0e0; /* Soft white for dark mode */
+  --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Appointment Wrapper */
+.appointment-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 60px 24px;
+  background: var(--background-light);
+  text-align: center;
+}
+
+/* Title */
+.appointment-wrapper h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  color: var(--text-dark);
+  margin-bottom: 40px;
+  letter-spacing: 1.5px;
+  position: relative;
+  text-transform: capitalize;
+  font-weight: 700;
+}
+
+.appointment-wrapper h1::after {
+  content: '';
+  width: 80px;
+  height: 6px;
+  background: var(--accent-gradient);
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.appointment-wrapper h1:hover::after {
+  width: 120px;
+}
+
+/* Appointment Form */
+.appointment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: var(--card-shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.appointment-form::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--accent-gradient);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.appointment-form:hover::before {
+  transform: scaleX(1);
+}
+
+.appointment-form label {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+.appointment-form input,
+.appointment-form select {
+  margin-top: 8px;
+  padding: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  color: var(--text-dark);
+  background: #f9f9f9;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.appointment-form input:focus,
+.appointment-form select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 8px rgba(92, 107, 192, 0.2);
+}
+
+.appointment-form select {
+  appearance: none;
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+}
+
+.appointment-form button[type="submit"] {
+  background: var(--primary-color);
+  color: #ffffff;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 8px;
+  font-family: 'Lora', serif;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.appointment-form button[type="submit"]:hover {
+  background: #4a5ba3;
+  transform: translateY(-2px);
+}
+
+.appointment-form button[type="submit"]:disabled {
+  background: #b0bec5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Selected Services */
+.selected-services {
+  background: #f9f9f9;
+  padding: 16px;
+  border-radius: 8px;
+  text-align: left;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.selected-services ul {
+  list-style: none;
+  margin-bottom: 16px;
+}
+
+.selected-services li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  color: var(--text-dark);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.selected-services li button {
+  background: none;
+  border: none;
+  color: #e57373;
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.selected-services li button:hover {
+  color: #d32f2f;
+}
+
+.total-price {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  color: var(--secondary-color);
+  font-weight: 600;
+  text-align: right;
+}
+
+/* Popup Overlay */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup {
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: var(--card-shadow);
+  max-width: 400px;
+  width: 90%;
+  animation: popupFadeIn 0.3s ease;
+}
+
+.popup h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  color: var(--text-dark);
+  margin-bottom: 16px;
+}
+
+.popup p {
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  color: #4a4a4a;
+  margin-bottom: 24px;
+}
+
+.popup button {
+  background: var(--secondary-color);
+  color: #ffffff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.popup button:hover {
+  background: #c2185b;
+  transform: translateY(-2px);
+}
+
+/* Popup Animation */
+@keyframes popupFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .appointment-wrapper {
+    padding: 40px 16px;
+  }
+
+  .appointment-wrapper h1 {
+    font-size: 36px;
+  }
+
+  .appointment-wrapper h1::after {
+    width: 60px;
+  }
+
+  .appointment-wrapper h1:hover::after {
+    width: 90px;
+  }
+
+  .appointment-form {
+    padding: 24px;
+    gap: 20px;
+  }
+
+  .appointment-form input,
+  .appointment-form select {
+    padding: 10px;
+    font-size: 15px;
+  }
+
+  .appointment-form button[type="submit"] {
+    padding: 12px 20px;
+    font-size: 16px;
+  }
+
+  .selected-services li {
+    font-size: 15px;
+  }
+
+  .total-price {
+    font-size: 18px;
+  }
+
+  .popup {
+    padding: 24px;
+  }
+
+  .popup h2 {
+    font-size: 24px;
+  }
+
+  .popup p {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .appointment-wrapper {
+    padding: 32px 12px;
+  }
+
+  .appointment-wrapper h1 {
+    font-size: 28px;
+  }
+
+  .appointment-wrapper h1::after {
+    width: 50px;
+  }
+
+  .appointment-wrapper h1:hover::after {
+    width: 70px;
+  }
+
+  .appointment-form {
+    padding: 20px;
+    gap: 16px;
+  }
+
+  .appointment-form label {
+    font-size: 15px;
+  }
+
+  .appointment-form input,
+  .appointment-form select {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .appointment-form button[type="submit"] {
+    padding: 10px 16px;
+    font-size: 15px;
+  }
+
+  .selected-services li {
+    font-size: 14px;
+  }
+
+  .total-price {
+    font-size: 16px;
+  }
+
+  .popup {
+    padding: 20px;
+    max-width: 300px;
+  }
+
+  .popup h2 {
+    font-size: 20px;
+  }
+
+  .popup p {
+    font-size: 14px;
+  }
+
+  .popup button {
+    padding: 10px 20px;
+    font-size: 15px;
+  }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  .appointment-wrapper {
+    background: var(--background-dark);
+  }
+
+  .appointment-wrapper h1 {
+    color: var(--text-light);
+  }
+
+  .appointment-form {
+    background: #2a2a2a;
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .appointment-form label {
+    color: var(--text-light);
+  }
+
+  .appointment-form input,
+  .appointment-form select {
+    background: #333;
+    color: var(--text-light);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+ 
+
+  .appointment-form input:focus,
+  .appointment-form select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 8px rgba(92, 107, 192, 0.3);
+  }
+
+  .selected-services {
+    background: #333;
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .selected-services li {
+    color: var(--text-light);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .total-price {
+    color: var(--secondary-color);
+  }
+
+  .popup {
+    background: #2a2a2a;
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.05);
+  }
+
+  .popup h2 {
+    color: var(--text-light);
+  }
+
+  .popup p {
+    color: #b0b0b0;
+  }
+}

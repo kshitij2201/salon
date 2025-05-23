@@ -1,0 +1,294 @@
+/* Import fonts (ensure these are available in your project) */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:wght@400;600&display=swap');
+
+/* Variable Definitions (same as AdminDashboard) */
+:root {
+  --primary-color: #5c6bc0; /* Indigo for buttons and accents */
+  --secondary-color: #e91e63; /* Vibrant pink for highlights */
+  --accent-gradient: linear-gradient(45deg, #e91e63, #f06292);
+  --background-light: #f7f1e9; /* Warm cream background */
+  --background-dark: #1c2526; /* Deep charcoal for dark mode */
+  --text-dark: #1a1a1a; /* Near-black for text */
+  --text-light: #e0e0e0; /* Soft white for dark mode */
+  --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  --error-color: #ef5350; /* Red for error messages */
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Login Form Wrapper */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: var(--background-light);
+  padding: 24px;
+  width: 100%;
+  transition: margin-left 0.3s ease; /* For potential sidebar compatibility */
+}
+
+/* Login Card */
+.login-form form {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  padding: 40px 32px;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Title */
+.login-form h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  color: var(--text-dark);
+  margin-bottom: 32px;
+  letter-spacing: 1.2px;
+  position: relative;
+  text-transform: capitalize;
+  font-weight: 700;
+}
+
+.login-form h2::after {
+  content: '';
+  width: 60px;
+  height: 5px;
+  background: var(--accent-gradient);
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.login-form h2:hover::after {
+  width: 90px;
+}
+
+/* Form Inputs */
+.login-form input {
+  width: 100%;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  color: var(--text-dark);
+  background: #f9f9f9;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-form input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 8px rgba(92, 107, 192, 0.2);
+}
+
+.login-form input::placeholder {
+  color: #999;
+}
+
+/* Error Message */
+.login-form .error-message {
+  color: var(--error-color);
+  font-family: 'Lora', serif;
+  font-size: 14px;
+  margin-bottom: 16px;
+  text-align: center;
+  display: none; /* Hidden by default */
+}
+
+.login-form .error-message.active {
+  display: block; /* Shown when active */
+}
+
+/* Submit Button */
+.login-form button {
+  width: 100%;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  color: #ffffff;
+  background: var(--primary-color);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.login-form button:hover {
+  background: #4a5ba3;
+  transform: translateY(-2px);
+}
+
+.login-form button:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgba(92, 107, 192, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .admin-nav.active + .admin-content .login-form {
+    margin-left: 280px; /* Match sidebar width */
+    opacity: 0.5; /* Dim content when sidebar is open */
+  }
+
+  .login-form {
+    padding: 16px;
+  }
+
+  .login-form form {
+    padding: 32px 24px;
+    max-width: 90%; /* More flexible width */
+  }
+
+  .login-form h2 {
+    font-size: 30px;
+  }
+
+  .login-form h2::after {
+    width: 50px;
+  }
+
+  .login-form h2:hover::after {
+    width: 70px;
+  }
+
+  .login-form input,
+  .login-form button {
+    font-size: 15px;
+    padding: 10px 14px;
+  }
+
+  .login-form .error-message {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-nav.active + .admin-content .login-form {
+    margin-left: 0; /* Full-width sidebar, no margin needed */
+    opacity: 0.5;
+  }
+
+  .login-form {
+    padding: 12px;
+  }
+
+  .login-form form {
+    padding: 24px 16px;
+    max-width: 95%;
+  }
+
+  .login-form h2 {
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+
+  .login-form h2::after {
+    width: 40px;
+  }
+
+  .login-form h2:hover::after {
+    width: 60px;
+  }
+
+  .login-form input,
+  .login-form button {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  .login-form .error-message {
+    font-size: 12px;
+    margin-bottom: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .login-form {
+    padding: 8px;
+  }
+
+  .login-form form {
+    padding: 20px 12px;
+    max-width: 100%;
+  }
+
+  .login-form h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .login-form h2::after {
+    width: 30px;
+  }
+
+  .login-form h2:hover::after {
+    width: 50px;
+  }
+
+  .login-form input,
+  .login-form button {
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+
+  .login-form .error-message {
+    font-size: 11px;
+  }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  .login-form {
+    background: var(--background-dark);
+  }
+
+  .login-form form {
+    background: #2a2a2a;
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.05);
+  }
+
+  .login-form h2 {
+    color: var(--text-light);
+  }
+
+  .login-form input {
+    background: #333;
+    color: var(--text-light);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .login-form input::placeholder {
+    color: #cccccc; /* Brighter for better contrast */
+  }
+
+  .login-form input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 8px rgba(92, 107, 192, 0.3);
+  }
+
+  .login-form .error-message {
+    color: #ff6666; /* Lighter red for dark mode */
+  }
+
+  .login-form button {
+    background: var(--primary-color);
+    color: #ffffff;
+  }
+
+  .login-form button:hover {
+    background: #4a5ba3;
+  }
+}

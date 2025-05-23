@@ -1,0 +1,260 @@
+/* Variable Definitions */
+:root {
+  --primary-color: #5c6bc0; /* Indigo for a luxurious feel */
+  --secondary-color: #e91e63; /* Vibrant pink for accents */
+  --accent-gradient: linear-gradient(45deg, #e91e63, #f06292);
+  --background-light: #f7f1e9; /* Warm cream for elegance */
+  --background-dark: #1c2526; /* Deep charcoal for dark mode */
+  --text-dark: #1a1a1a; /* Near-black for readability */
+  --text-light: #e0e0e0; /* Soft white for dark mode */
+  --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Home Wrapper */
+.home-wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 80px 24px;
+  text-align: center;
+  background: var(--background-light);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative Background Element */
+.home-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background: var(--accent-gradient);
+  opacity: 0.1;
+  z-index: -1;
+  transform: skewY(-5deg);
+}
+
+.home-wrapper h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 56px;
+  color: var(--text-dark);
+  margin-bottom: 48px;
+  letter-spacing: 1.5px;
+  position: relative;
+  text-transform: capitalize;
+  font-weight: 700;
+}
+
+.home-wrapper h1::after {
+  content: '';
+  width: 80px;
+  height: 6px;
+  background: var(--accent-gradient);
+  position: absolute;
+  bottom: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.home-wrapper h1:hover::after {
+  width: 120px;
+}
+
+/* Service List */
+.service-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  padding: 40px 0;
+}
+
+/* Service Card */
+.service-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 32px 24px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: var(--card-shadow);
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--accent-gradient);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover::before {
+  transform: scaleX(1);
+}
+
+.service-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+}
+
+.service-card h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  color: var(--text-dark);
+  margin-bottom: 16px;
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
+}
+
+.service-card p {
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  color: #4a4a4a;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.service-card p strong {
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+.service-card p:last-child {
+  font-size: 22px;
+  color: var(--secondary-color);
+  font-weight: 700;
+  margin-top: 16px;
+  transition: color 0.3s ease;
+}
+
+.service-card:hover p:last-child {
+  color: #c2185b;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .home-wrapper {
+    padding: 48px 16px;
+  }
+
+  .home-wrapper h1 {
+    font-size: 40px;
+  }
+
+  .home-wrapper h1::after {
+    width: 60px;
+  }
+
+  .home-wrapper h1:hover::after {
+    width: 90px;
+  }
+
+  .service-list {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 24px 0;
+  }
+
+  .service-card {
+    padding: 24px 16px;
+  }
+
+  .service-card h2 {
+    font-size: 28px;
+  }
+
+  .service-card p {
+    font-size: 15px;
+  }
+
+  .service-card p:last-child {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-wrapper {
+    padding: 32px 12px;
+  }
+
+  .home-wrapper h1 {
+    font-size: 32px;
+  }
+
+  .home-wrapper h1::after {
+    width: 50px;
+  }
+
+  .home-wrapper h1:hover::after {
+    width: 70px;
+  }
+
+  .service-card {
+    padding: 20px 12px;
+  }
+
+  .service-card h2 {
+    font-size: 24px;
+  }
+
+  .service-card p {
+    font-size: 14px;
+  }
+
+  .service-card p:last-child {
+    font-size: 18px;
+  }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  .home-wrapper {
+    background: var(--background-dark);
+  }
+
+  .home-wrapper h1 {
+    color: var(--text-light);
+  }
+
+  .service-card {
+    background: #2a2a2a;
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.05);
+  }
+
+  .service-card h2 {
+    color: var(--text-light);
+  }
+
+  .service-card p {
+    color: #b0b0b0;
+  }
+
+  .service-card p strong {
+    color: var(--text-light);
+  }
+
+  .service-card p:last-child {
+    color: var(--secondary-color);
+  }
+
+  .service-card:hover p:last-child {
+    color: #f06292;
+  }
+}

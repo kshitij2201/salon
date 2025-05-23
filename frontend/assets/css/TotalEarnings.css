@@ -1,0 +1,251 @@
+/* Variable Definitions */
+:root {
+  --primary-color: #5c6bc0; /* Indigo for accents */
+  --secondary-color: #e91e63; /* Vibrant pink for highlights */
+  --accent-gradient: linear-gradient(45deg, #e91e63, #f06292);
+  --background-light: #f7f1e9; /* Warm cream background */
+  --background-dark: #1c2526; /* Deep charcoal for dark mode */
+  --text-dark: #1a1a1a; /* Near-black for text */
+  --text-light: #e0e0e0; /* Soft white for dark mode */
+  --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Total Earnings Wrapper */
+.total-earnings-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  background: var(--background-light);
+  text-align: center;
+  min-height: 100vh;
+}
+
+/* Title */
+.total-earnings-page h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  color: var(--text-dark);
+  margin-bottom: 32px;
+  letter-spacing: 1.5px;
+  position: relative;
+  font-weight: 700;
+}
+
+.total-earnings-page h1::after {
+  content: '';
+  width: 80px;
+  height: 6px;
+  background: var(--accent-gradient);
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.total-earnings-page h1:hover::after {
+  width: 120px;
+}
+
+/* Earnings Table */
+.earnings-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  margin-top: 24px;
+}
+
+.earnings-table th,
+.earnings-table td {
+  padding: 16px;
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  color: var(--text-dark);
+  text-align: left;
+}
+
+.earnings-table th {
+  background: var(--primary-color);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.earnings-table tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+.earnings-table tr:hover {
+  background: rgba(92, 107, 192, 0.1);
+}
+
+.earnings-table .yearly-total {
+  font-weight: 600;
+  background: var(--secondary-color);
+  color: #ffffff;
+}
+
+.earnings-table .yearly-total td {
+  color: #ffffff;
+}
+
+/* Card-based Layout for Mobile */
+@media (max-width: 768px) {
+  .earnings-table {
+    display: none; /* Hide table in mobile */
+  }
+
+  .earnings-table-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  .earnings-card {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    padding: 16px;
+    font-family: 'Lora', serif;
+    font-size: 15px;
+    color: var(--text-dark);
+  }
+
+  .earnings-card div {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .earnings-card div:last-child {
+    border-bottom: none;
+  }
+
+  .earnings-card strong {
+    font-weight: 600;
+    color: var(--primary-color);
+  }
+
+  .earnings-card.yearly-total {
+    background: var(--secondary-color);
+    color: #ffffff;
+  }
+
+  .earnings-card.yearly-total div {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .earnings-card.yearly-total strong,
+  .earnings-card.yearly-total span {
+    color: #ffffff;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .total-earnings-page {
+    padding: 24px 16px;
+    margin-top: 80px; /* Space for mobile navbar */
+  }
+
+  .total-earnings-page h1 {
+    font-size: 36px;
+  }
+
+  .total-earnings-page h1::after {
+    width: 60px;
+  }
+
+  .total-earnings-page h1:hover::after {
+    width: 90px;
+  }
+}
+
+@media (max-width: 480px) {
+  .total-earnings-page {
+    padding: 16px 12px;
+    margin-top: 60px; /* Adjust for smaller navbar */
+  }
+
+  .total-earnings-page h1 {
+    font-size: 28px;
+  }
+
+  .total-earnings-page h1::after {
+    width: 50px;
+  }
+
+  .total-earnings-page h1:hover::after {
+    width: 70px;
+  }
+
+  .earnings-card {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .earnings-card div {
+    padding: 6px 0;
+  }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  .total-earnings-page {
+    background: var(--background-dark);
+  }
+
+  .total-earnings-page h1 {
+    color: var(--text-light);
+  }
+
+  .earnings-table,
+  .earnings-card {
+    background: #2a2a2a;
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.05);
+  }
+
+  .earnings-table th,
+  .earnings-table td,
+  .earnings-card {
+    color: var(--text-light);
+  }
+
+  .earnings-table tr:nth-child(even),
+  .earnings-card:nth-child(even) {
+    background: #333;
+  }
+
+  .earnings-table tr:hover,
+  .earnings-card:hover {
+    background: rgba(92, 107, 192, 0.2);
+  }
+
+  .earnings-card div {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .earnings-card div:last-child {
+    border-bottom: none;
+  }
+
+  .earnings-card strong {
+    color: var(--primary-color);
+  }
+
+  .earnings-card.yearly-total div {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+}

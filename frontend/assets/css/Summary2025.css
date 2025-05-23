@@ -1,0 +1,199 @@
+/* Summary 2025 Page */
+.summary-2025-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    background: var(--background-light);
+    text-align: center;
+    min-height: 100vh;
+  }
+  
+  .summary-2025-page h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    color: var(--text-dark);
+    margin-bottom: 32px;
+    letter-spacing: 1.5px;
+    position: relative;
+    text-transform: capitalize;
+    font-weight: 700;
+  }
+  
+  .summary-2025-page h1::after {
+    content: '';
+    width: 80px;
+    height: 6px;
+    background: var(--accent-gradient);
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 3px;
+    transition: width 0.3s ease;
+  }
+  
+  .summary-2025-page h1:hover::after {
+    width: 120px;
+  }
+  
+  /* Export Button */
+  .summary-2025-page > button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Lora', serif;
+    font-size: 16px;
+    background: var(--primary-color);
+    color: #ffffff;
+    cursor: pointer;
+    margin-top: 24px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .summary-2025-page > button:hover {
+    background: #4a5ba3;
+    transform: translateY(-2px);
+  }
+  
+  /* Table */
+  .summary-2025-page table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+    margin-bottom: 32px;
+  }
+  
+  .summary-2025-page th,
+  .summary-2025-page td {
+    padding: 16px;
+    font-family: 'Lora', serif;
+    font-size: 16px;
+    color: var(--text-dark);
+    text-align: left;
+  }
+  
+  .summary-2025-page th {
+    background: var(--primary-color);
+    color: #ffffff;
+    font-weight: 600;
+  }
+  
+  .summary-2025-page tr:nth-child(even) {
+    background: #f9f9f9;
+  }
+  
+  .summary-2025-page tr:hover {
+    background: rgba(92, 107, 192, 0.1);
+  }
+  
+  .summary-2025-page tfoot tr.yearly-summary {
+    background: var(--secondary-color);
+    color: #ffffff;
+    font-weight: 600;
+  }
+  
+  .summary-2025-page tfoot tr.yearly-summary td {
+    padding: 16px;
+    font-family: 'Lora', serif;
+    font-size: 16px;
+  }
+  
+  .summary-2025-page tfoot tr.yearly-summary td strong {
+    font-weight: 700;
+  }
+  
+  /* Dark Mode */
+  @media (prefers-color-scheme: dark) {
+    .summary-2025-page {
+      background: var(--background-dark);
+    }
+  
+    .summary-2025-page h1 {
+      color: var(--text-light);
+    }
+  
+    .summary-2025-page table {
+      background: #2a2a2a;
+      box-shadow: 0 8px 24px rgba(255, 255, 255, 0.05);
+    }
+  
+    .summary-2025-page th,
+    .summary-2025-page td {
+      color: var(--text-light);
+    }
+  
+    .summary-2025-page tr:nth-child(even) {
+      background: #333;
+    }
+  
+    .summary-2025-page tr:hover {
+      background: rgba(92, 107, 192, 0.2);
+    }
+  
+    .summary-2025-page tfoot tr.yearly-summary {
+      background: var(--secondary-color);
+      color: #ffffff;
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .summary-2025-page {
+      padding: 24px 16px;
+    }
+  
+    .summary-2025-page h1 {
+      font-size: 36px;
+    }
+  
+    .summary-2025-page h1::after {
+      width: 60px;
+    }
+  
+    .summary-2025-page h1:hover::after {
+      width: 90px;
+    }
+  
+    .summary-2025-page > button {
+      padding: 10px 20px;
+      font-size: 15px;
+    }
+  
+    .summary-2025-page th,
+    .summary-2025-page td {
+      padding: 12px;
+      font-size: 15px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .summary-2025-page {
+      padding: 16px 12px;
+    }
+  
+    .summary-2025-page h1 {
+      font-size: 28px;
+    }
+  
+    .summary-2025-page h1::after {
+      width: 50px;
+    }
+  
+    .summary-2025-page h1:hover::after {
+      width: 70px;
+    }
+  
+    .summary-2025-page > button {
+      padding: 8px 16px;
+      font-size: 14px;
+    }
+  
+    .summary-2025-page th,
+    .summary-2025-page td {
+      padding: 8px;
+      font-size: 14px;
+    }
+  }

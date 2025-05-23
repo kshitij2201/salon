@@ -1,0 +1,558 @@
+/* Variable Definitions */
+:root {
+  --primary-color: #5c6bc0; /* Indigo for buttons and accents */
+  --secondary-color: #e91e63; /* Vibrant pink for highlights */
+  --accent-gradient: linear-gradient(45deg, #e91e63, #f06292);
+  --background-light: #f7f1e9; /* Warm cream background */
+  --background-dark: #1c2526; /* Deep charcoal for dark mode */
+  --text-dark: #1a1a1a; /* Near-black for text */
+  --text-light: #e0e0e0; /* Soft white for dark mode */
+  --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Admin Dashboard Wrapper */
+.admin-dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px;
+  background: var(--background-light);
+  text-align: center;
+}
+
+/* Title */
+.admin-dashboard h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  color: var(--text-dark);
+  margin-bottom: 32px;
+  letter-spacing: 1.5px;
+  position: relative;
+  text-transform: capitalize;
+  font-weight: 700;
+}
+
+.admin-dashboard h1::after {
+  content: '';
+  width: 80px;
+  height: 6px;
+  background: var(--accent-gradient);
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.admin-dashboard h1:hover::after {
+  width: 120px;
+}
+
+/* Dashboard Controls */
+.dashboard-controls {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.dashboard-controls select,
+.dashboard-controls button {
+  padding: 12px 20px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  color: var(--text-dark);
+  background: #f9f9f9;
+  cursor: pointer;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.dashboard-controls select:focus,
+.dashboard-controls button:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 8px rgba(92, 107, 192, 0.2);
+}
+
+.dashboard-controls select {
+  appearance: none;
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+}
+
+.dashboard-controls button {
+  background: var(--primary-color);
+  color: #ffffff;
+  border: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.dashboard-controls button:hover {
+  background: #4a5ba3;
+  transform: translateY(-2px);
+}
+
+/* Appointment Table */
+.appointment-table {
+  overflow-x: auto;
+}
+
+.appointment-table table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+}
+
+.appointment-table th,
+.appointment-table td {
+  padding: 16px;
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  color: var(--text-dark);
+  text-align: left;
+}
+
+.appointment-table th {
+  background: var(--primary-color);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.appointment-table tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+.appointment-table tr:hover {
+  background: rgba(92, 107, 192, 0.1);
+}
+
+.appointment-table ul {
+  list-style: none;
+  padding: 0;
+}
+
+.appointment-table ul li {
+  margin-bottom: 4px;
+}
+
+.appointment-table button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-family: 'Lora', serif;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.appointment-table button.paid {
+  background: #4caf50;
+  color: #ffffff;
+}
+
+.appointment-table button.paid:hover {
+  background: #388e3c;
+  transform: translateY(-1px);
+}
+
+.appointment-table button.not-paid {
+  background: #ef5350;
+  color: #ffffff;
+}
+
+.appointment-table button.not-paid:hover {
+  background: #d32f2f;
+  transform: translateY(-1px);
+}
+
+.appointment-table button.done {
+  background: #0288d1;
+  color: #ffffff;
+}
+
+.appointment-table button.done:hover {
+  background: #01579b;
+  transform: translateY(-1px);
+}
+
+.appointment-table button.not-done {
+  background: #ff9800;
+  color: #ffffff;
+}
+
+.appointment-table button.not-done:hover {
+  background: #f57c00;
+  transform: translateY(-1px);
+}
+
+.appointment-table button:not(.paid):not(.not-paid):not(.done):not(.not-done) {
+  background: var(--secondary-color);
+  color: #ffffff;
+}
+
+.appointment-table button:not(.paid):not(.not-paid):not(.done):not(.not-done):hover {
+  background: #c2185b;
+  transform: translateY(-1px);
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: var(--card-shadow);
+  max-width: 500px;
+  width: 90%;
+  text-align: left;
+  animation: modalFadeIn 0.3s ease;
+}
+
+.modal h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  color: var(--text-dark);
+  margin-bottom: 24px;
+}
+
+.modal label {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  color: var(--text-dark);
+  margin-bottom: 16px;
+}
+
+.modal input,
+.modal select {
+  margin-top: 8px;
+  padding: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  color: var(--text-dark);
+  background: #f9f9f9;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.modal input:focus,
+.modal select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 8px rgba(92, 107, 192, 0.2);
+}
+
+.modal select {
+  appearance: none;
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+}
+
+.modal .selected-services {
+  margin: 16px 0;
+  padding: 16px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.modal .selected-services div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  color: var(--text-dark);
+}
+
+.modal .selected-services button {
+  background: #e57373;
+  color: #ffffff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.modal .selected-services button:hover {
+  background: #d32f2f;
+}
+
+.modal p {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  color: var(--secondary-color);
+  margin: 16px 0;
+  font-weight: 600;
+}
+
+.modal button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.modal button:first-of-type {
+  background: var(--primary-color);
+  color: #ffffff;
+  margin-right: 12px;
+}
+
+.modal button:first-of-type:hover {
+  background: #4a5ba3;
+  transform: translateY(-2px);
+}
+
+.modal button:last-of-type {
+  background: #e0e0e0;
+  color: var(--text-dark);
+}
+
+.modal button:last-of-type:hover {
+  background: #b0bec5;
+  transform: translateY(-2px);
+}
+
+/* Modal Animation */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .admin-dashboard {
+    padding: 24px 16px;
+  }
+
+  .admin-dashboard h1 {
+    font-size: 36px;
+  }
+
+  .admin-dashboard h1::after {
+    width: 60px;
+  }
+
+  .admin-dashboard h1:hover::after {
+    width: 90px;
+  }
+
+  .dashboard-controls {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .dashboard-controls select,
+  .dashboard-controls button {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px 16px;
+    font-size: 15px;
+  }
+
+  .appointment-table th,
+  .appointment-table td {
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  .appointment-table button {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+
+  .modal {
+    padding: 24px;
+    max-width: 400px;
+  }
+
+  .modal h2 {
+    font-size: 24px;
+  }
+
+  .modal label,
+  .modal input,
+  .modal select,
+  .modal .selected-services div {
+    font-size: 15px;
+  }
+
+  .modal button {
+    padding: 10px 20px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-dashboard {
+    padding: 16px 12px;
+  }
+
+  .admin-dashboard h1 {
+    font-size: 28px;
+  }
+
+  .admin-dashboard h1::after {
+    width: 50px;
+  }
+
+  .admin-dashboard h1:hover::after {
+    width: 70px;
+  }
+
+  .dashboard-controls select,
+  .dashboard-controls button {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  .appointment-table th,
+  .appointment-table td {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .appointment-table button {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+  .modal {
+    padding: 20px;
+    max-width: 300px;
+  }
+
+  .modal h2 {
+    font-size: 20px;
+  }
+
+  .modal label,
+  .modal input,
+  .modal select,
+  .modal .selected-services div {
+    font-size: 14px;
+  }
+
+  .modal button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .modal p {
+    font-size: 16px;
+  }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  .admin-dashboard {
+    background: var(--background-dark);
+  }
+
+  .admin-dashboard h1 {
+    color: var(--text-light);
+  }
+
+  .dashboard-controls select,
+  .dashboard-controls button {
+    background: #333;
+    color: var(--text-light);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+
+  .dashboard-controls select:focus,
+  .dashboard-controls button:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 8px rgba(92, 107, 192, 0.3);
+  }
+
+  .appointment-table table {
+    background: #2a2a2a;
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.05);
+  }
+
+  .appointment-table th,
+  .appointment-table td {
+    color: var(--text-light);
+  }
+
+  .appointment-table tr:nth-child(even) {
+    background: #333;
+  }
+
+  .appointment-table tr:hover {
+    background: rgba(92, 107, 192, 0.2);
+  }
+
+  .modal {
+    background: #2a2a2a;
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.05);
+  }
+
+  .modal h2,
+  .modal label {
+    color: var(--text-light);
+  }
+
+  .modal input,
+  .modal select {
+    background: #333;
+    color: var(--text-light);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+
+  .modal .selected-services {
+    background: #333;
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .modal .selected-services div {
+    color: var(--text-light);
+  }
+
+  .modal p {
+    color: var(--secondary-color);
+  }
+}
