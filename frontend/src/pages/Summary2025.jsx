@@ -19,7 +19,7 @@ function Summary2025() {
 
   const fetchSummary = async () => {
     try {
-      const appointmentsRes = await axios.get('http://localhost:5000/api/appointments');
+      const appointmentsRes = await axios.get('http://salon-one-rose.vercel.app/api/appointments');
       const expensesRes = await getAllExpenses();
 
       const appointments = appointmentsRes.data;

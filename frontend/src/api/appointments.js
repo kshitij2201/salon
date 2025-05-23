@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 // Base URL for your backend API
-const BASE_URL = 'http://localhost:5000/api';
+const BASE_URL = 'http://salon-one-rose.vercel.app/api';
 
 // Get all appointments (for Admin)
 export const getAppointments = async () => {

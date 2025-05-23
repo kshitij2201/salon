@@ -24,7 +24,7 @@ function AdminDashboard() {
 
   const fetchAppointments = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/appointments');
+      const res = await axios.get('http://salon-one-rose.vercel.app/api/appointments');
       setAppointments(res.data);
       setFilteredAppointments(res.data);
       populateStylistFilter(res.data);
@@ -35,7 +35,7 @@ function AdminDashboard() {
 
   const fetchServices = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/services');
+      const res = await axios.get('http://salon-one-rose.vercel.app/api/services');
       setServices(res.data);
     } catch (err) {
       console.error('Error fetching services', err);
@@ -46,7 +46,7 @@ function AdminDashboard() {
     try {
       const newStatus = currentStatus === 'paid' ? 'not paid' : 'paid';
       console.log(`Toggling payment status for appointment ${id}: ${currentStatus} → ${newStatus}`);
-      await axios.put(`http://localhost:5000/api/appointments/${id}`, {
+      await axios.put(`http://salon-one-rose.vercel.app/api/appointments/${id}`, {
         paymentStatus: newStatus
       });
       fetchAppointments();
@@ -59,7 +59,7 @@ function AdminDashboard() {
     try {
       const newStatus = !currentStatus;
       console.log(`Toggling work done status for appointment ${id}: ${currentStatus} → ${newStatus}`);
-      await axios.put(`http://localhost:5000/api/appointments/${id}`, {
+      await axios.put(`http://salon-one-rose.vercel.app/api/appointments/${id}`, {
         workDone: newStatus
       });
       fetchAppointments();
@@ -76,7 +76,7 @@ function AdminDashboard() {
     }));
 
     axios
-      .put(`http://localhost:5000/api/appointments/${apptId}`, {
+      .put(`http://salon-one-rose.vercel.app/api/appointments/${apptId}`, {
         stylistName: newStylistName,
       })
       .then(() => {
@@ -207,7 +207,7 @@ function AdminDashboard() {
   const handleModalSave = async () => {
     console.log('Saving changes for appointment:', selectedAppointment);
     try {
-      await axios.put(`http://localhost:5000/api/appointments/${selectedAppointment._id}`, {
+      await axios.put(`http://salon-one-rose.vercel.app/api/appointments/${selectedAppointment._id}`, {
         customerName: selectedAppointment.customerName,
         phone: selectedAppointment.phone,
         stylistName: selectedAppointment.stylistName,

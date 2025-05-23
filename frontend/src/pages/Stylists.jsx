@@ -70,7 +70,7 @@ function Stylists() {
   // === ✨ New Functions for Downloading Reports ✨ ===
   const downloadDailyReport = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/reports/daily', { responseType: 'blob' });
+      const response = await axios.get('http://salon-one-rose.vercel.app/api/reports/daily', { responseType: 'blob' });
       const today = new Date().toISOString().split('T')[0];
       saveAs(response.data, `Daily_Attendance_${today}.csv`);
     } catch (error) {
@@ -83,7 +83,7 @@ function Stylists() {
       const today = new Date();
       const month = (today.getMonth() + 1).toString().padStart(2, '0');
       const year = today.getFullYear();
-      const response = await axios.get(`http://localhost:5000/api/reports/monthly?month=${month}&year=${year}`, { responseType: 'blob' });
+      const response = await axios.get(`http://salon-one-rose.vercel.app/api/reports/monthly?month=${month}&year=${year}`, { responseType: 'blob' });
       saveAs(response.data, `Monthly_Attendance_${month}_${year}.csv`);
     } catch (error) {
       console.error('Error downloading monthly report:', error);

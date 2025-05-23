@@ -12,7 +12,7 @@ function Appointments() {
 
   const fetchAppointments = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/appointments');
+      const res = await axios.get('http://salon-one-rose.vercel.app/api/appointments');
       setAppointments(res.data);
     } catch (err) {
       console.error(err);
@@ -21,7 +21,7 @@ function Appointments() {
 
   const handleUpdateStatus = async (id, status) => {
     try {
-      await axios.put(`http://localhost:5000/api/appointments/${id}`, { status });
+      await axios.put(`http://salon-one-rose.vercel.app/api/appointments/${id}`, { status });
       fetchAppointments();
     } catch (err) {
       console.error(err);
@@ -30,7 +30,7 @@ function Appointments() {
 
   const handlePaymentStatus = async (id, paymentStatus) => {
     try {
-      await axios.put(`http://localhost:5000/api/appointments/${id}`, { paymentStatus });
+      await axios.put(`http://salon-one-rose.vercel.app/api/appointments/${id}`, { paymentStatus });
       fetchAppointments();
     } catch (err) {
       console.error(err);
@@ -39,7 +39,7 @@ function Appointments() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/appointments/${id}`);
+      await axios.delete(`http://salon-one-rose.vercel.app/api/appointments/${id}`);
       fetchAppointments();
     } catch (err) {
       console.error(err);

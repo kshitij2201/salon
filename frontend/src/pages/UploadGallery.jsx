@@ -17,7 +17,7 @@ function UploadGallery() {
 
   const fetchGalleryItems = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/gallery');
+      const response = await axios.get('http://salon-one-rose.vercel.app/api/gallery');
       setGalleryItems(response.data);
     } catch (err) {
       setMessage('Failed to fetch gallery items.');
@@ -55,7 +55,7 @@ function UploadGallery() {
     formData.append('description', description);
 
     try {
-      await axios.post('http://localhost:5000/api/gallery', formData, {
+      await axios.post('http://salon-one-rose.vercel.app/api/gallery', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
 
@@ -83,7 +83,7 @@ function UploadGallery() {
     formData.append('description', description);
 
     try {
-      await axios.put(`http://localhost:5000/api/gallery/${fileId}`, formData, {
+      await axios.put(`http://salon-one-rose.vercel.app/api/gallery/${fileId}`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
 
@@ -102,7 +102,7 @@ function UploadGallery() {
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(`http://localhost:5000/api/gallery/${id}`);
+      await axios.delete(`http://salon-one-rose.vercel.app/api/gallery/${id}`);
       setMessage('Deleted successfully.');
       fetchGalleryItems();
     } catch (err) {
